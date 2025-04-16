@@ -7,4 +7,24 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  namespace :api do
+    namespace :v1 do
+      get 'hello',to: 'hello#index'
+    end
+  end
+
+  namespace :api do
+    namespace :v1 do
+      resources :schedules
+    end
+  end
+
+  namespace :api do
+    namespace :v1 do
+      post 'signup', to: 'auth#signup'
+      post 'login', to: 'auth#login' #ログインもここで実装
+    end
+  end
+  
 end
